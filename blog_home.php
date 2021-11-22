@@ -14,7 +14,7 @@ try  {
      // set the PDO error mode to exception
      $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);  
     
-     echo "Connection is successful<br><br>\n\r";
+    //  echo "Connection is successful<br><br>\n\r";
 }
 
 catch (PDOException $e) {
@@ -38,7 +38,7 @@ $rows = $result->fetchAll();
 ?>
 
 
-<!DOCTYPE html>
+<!DOCTYPE html><!-- Ryan King -->
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -69,18 +69,16 @@ $rows = $result->fetchAll();
      <h1>Blog Post Archive</h1>
        <h2><a href="form.html">Enter a Post</a></h2>
    </header>
- 
  <?php
-   foreach($rows as $row){
-    echo "<article>\n\r";
-    echo "<p><b>Title:</b> " . $row['Title']        . "</p>\n\r";
-    echo "<p><b>Post:</b> "  . $row['Entry']        .  "</p>\n\r";
-    echo "<p><b>Date:</b> "  . $row['date_entered'] . "</p>\n\r";
-    echo "</article>\n\r";
+    foreach($rows as $row){
+        echo "\n\r";
+        echo "\t<article>\n\r";
+        echo "\t\t<p><b>Title:</b> " . $row['Title']        . "</p>\n\r";
+        echo "\t\t<p><b>Post:</b> "  . $row['Entry']        .  "</p>\n\r";
+        echo "\t\t<p><b>Date:</b> "  . $row['date_entered'] . "</p>\n\r";
+        echo "\t</article>\n\r";
     }  
-    
     $conn = null;
   ?>    
-
 </body>
 </html>
